@@ -1,0 +1,75 @@
+﻿@using System.Globalization
+@model BOL.CommonEntities.EmployeeModule;
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/ViewCSS/EMPProfileGet.css"/>
+</head>
+
+<div class="row"> 
+    <div class="col-lg-6">
+        <h3>EMPLOYEE STATUS</h3>
+    </div>
+    <div class="col-lg-6">
+        <!-- Add any additional content for the second column if needed -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <form asp-controller="Employee" asp-action="EMPProfileGet" method="get">
+           
+ 
+        </form>
+        <form  asp-controller="Employee" asp-action="EMPProfile" method="post">
+            
+            <div class="filter">
+                <div class="dropdown">
+                    <label for="EMPName"><b>Employee Name:</b></label>
+                    <select id="employeeDropdown" name="EMPName">
+                        <option value="">Select Employee</option>
+                        @if (Model.employeeList != null && Model.employeeList.Any())
+                        {
+                            foreach (var employee in Model.employeeList)
+                            {
+                                <option value="@employee.FristName @employee.LastName">@employee.FristName @employee.LastName</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="">List is empty or null</option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="dropdown">
+                    <label for="Month"><b>Select Month:</b></label>
+                    <select id="Month" name="Month">
+                        <option value="">Select Month</option>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <option value="@i.ToString("00")">@DateTimeFormatInfo.CurrentInfo.GetMonthName(i)</option>
+                        }
+                    </select>    
+                </div>
+
+                <div class="dropdown">
+                    <label for="Year"><b>Select Year:</b></label>
+                    <select id="Year" name="Year">
+                        <option value="">Select Year</option>
+                        @for (int year = DateTime.Now.Year - 10; year <= 2024; year++)
+                        {
+                            <option value="@year">@year</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                </div>
+            </div>
+            <button id="submit" class="btn btn-primary" onclick="EMPProfile"><b>SEARCH</b></button>
+        </form>
+        
+    </div>
+</div>

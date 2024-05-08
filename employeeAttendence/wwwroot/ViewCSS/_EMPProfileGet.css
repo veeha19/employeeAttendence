@@ -1,0 +1,56 @@
+﻿/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    color: #333;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.table {
+    width: 100%; /* Full-width tables */
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+}
+
+    .table th, .table td {
+        text-align: left; /* Aligns text to the left in cells */
+        padding: 12px 15px; /* Adds space around text in cells */
+        border: 1px solid #ddd; /* Light grey border for readability */
+    }
+
+    .table th {
+        background-color: white; /* Dark blue background for header cells */
+        color: white; /* White text for header cells */
+        font-weight: bold; /* Makes header text bold */
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: aliceblue; /* Zebra-striping for rows */
+    }
+
+    .table tbody tr:hover {
+        background-color: #FEFEFE;
+    }
+
+    .table td {
+        color: #555; /* Darker text color for better readability */
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-lg-6, .col-lg-8 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        font-size: 14px; /* Smaller text for smaller screens */
+    }
+}
+.red-color {
+    color: red!important;
+}

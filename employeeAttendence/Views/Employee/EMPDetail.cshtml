@@ -1,0 +1,51 @@
+﻿@model BOL.CommonEntities.EmployeeModule;
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>EMPLOYEE RECORD</h3>
+    </div>
+    <div class="col-lg-6">
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">EMPId</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">EntryTime</th>
+                    <th scope="col">ExitTime</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                @if (Model != null && Model.DetailList != null && Model.DetailList.Any())
+                {
+                    foreach (var empdetail in Model.DetailList)
+                    {
+                        <tr>
+
+                            <td scope="row"><b>@empdetail.EMPId</b></td>
+                            <td>@empdetail.Date.ToString("dd-MMM-yyyy")</td>
+                            <td>@empdetail.EntryTime.ToString(@"hh\:mm\:ss")</td>
+                            <td>@empdetail.ExitTime.ToString(@"hh\:mm\:ss")</td>   
+    
+                        </tr>
+                    }
+
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No Record found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+             
